@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam | Développeur Web Junior</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@500;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1; /* Bleu moderne */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text-gray: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
+
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; }
+
+        .container { max-width: 1100px; margin: -50px auto 50px; padding: 0 20px; }
+
+        /* --- SECTION PROJETS --- */
+        .section-title { margin: 100px 0 40px; text-align: center; font-family: 'Outfit', sans-serif; font-size: 2rem; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover { transform: translateY(-10px); }
+
+        .project-img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
+
+        .project-info { padding: 25px; }
+        .project-info h3 { margin-bottom: 10px; font-size: 1.4rem; }
+        .project-info p { color: var(--text-gray); margin-bottom: 20px; font-size: 0.95rem; }
+
+        .btn-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-link:hover { opacity: 0.8; }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 80px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.9rem; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Adam</h1>
+        <p>Créateur de solutions web modernes et élégantes. Spécialisé dans les sites vitrines pour entreprises et commerces.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Mes Réalisations</h2>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Bella Pasta" class="project-img">
+                <div class="project-info">
+                    <h3>Bella Pasta</h3>
+                    <p>Site vitrine gastronomique. Design chaleureux, menu complet et optimisation pour la navigation mobile.</p>
+                    <a href="https://adam0911-devcode.github.io/restaurant-demo/" target="_blank" class="btn-link">Voir le site</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="L'Atelier Coiffure" class="project-img">
+                <div class="project-info">
+                    <h3>L'Atelier Coiffure</h3>
+                    <p>Site "One-Page" de luxe. Expérience utilisateur fluide, galerie photos optimisée et système d'appel direct.</p>
+                    <a href="https://adam0911-devcode.github.io/atelier-coiffeur/" target="_blank" class="btn-link">Voir le site</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h2 style="margin-bottom: 15px;">Un projet en tête ?</h2>
+            <p style="margin-bottom: 25px;">Je suis disponible pour créer votre présence en ligne.</p>
+            <a href="mailto:tonadresse@email.com" class="btn-link" style="background: var(--dark);">Me contacter par email</a>
+        </div>
+
+        <footer>
+            © 2026 - Adam | Développé avec passion
+        </footer>
+    </div>
+
+</body>
+</html>
