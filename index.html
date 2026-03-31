@@ -86,6 +86,47 @@
         @media (max-width: 600px) {
             header h1 { font-size: 2.5rem; }
         }
+        .faq-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.faq-title {
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--dark);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.faq-item {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.faq-item h3 {
+    color: var(--primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.faq-item p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
     </style>
 </head>
 <body>
@@ -162,6 +203,26 @@
         </div>
     </div>
 </section>
+        <div class="faq-container">
+    <h2 class="faq-title">Pourquoi me confier votre projet ?</h2>
+    
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h3>🚀 Un tarif direct et transparent</h3>
+            <p>Contrairement aux agences web qui facturent des milliers d'euros pour couvrir leurs frais de structure, je vous propose un tarif direct. Vous payez pour le travail accompli, pas pour des bureaux luxueux.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>⚡ Réactivité & Proximité</h3>
+            <p>Je ne gère pas des dizaines de projets en même temps. En travaillant avec moi, vous bénéficiez d'un interlocuteur unique, passionné et disponible pour répondre à vos besoins en un temps record.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>💎 Propriété Totale</h3>
+            <p>Une fois le site livré, il vous appartient à 100%. Pas d'abonnement caché ni de frais de résiliation. Je vous livre les fichiers et je vous aide même à choisir votre nom de domaine.</p>
+        </div>
+    </div>
+</div>
 
         <div class="contact-box">
             <div style="display: inline-block; background: #fef3c7; color: #92400e; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
