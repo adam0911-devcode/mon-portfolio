@@ -3,240 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam | Développeur Web</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@500;800&display=swap" rel="stylesheet">
+    <title>Adam | Atlas Web Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@500;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
         :root {
-            --primary: #6366f1; /* Bleu moderne */
+            --primary: #6366f1;
+            --primary-light: #818cf8;
             --dark: #0f172a;
             --light: #f8fafc;
+            --white: #ffffff;
             --text-gray: #64748b;
+            --accent: #fef3c7;
+            --accent-text: #92400e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--light); 
+            color: var(--dark); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
+        /* --- HEADER --- */
         header {
-            height: 60vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
             text-align: center;
             padding: 20px;
         }
 
-        header h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; }
+        header h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 15px; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin-bottom: 30px; }
 
-        .container { max-width: 1100px; margin: -50px auto 50px; padding: 0 20px; }
+        /* --- SECTIONS COMMUNES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; }
+        .section-title { 
+            text-align: center; 
+            font-family: 'Outfit', sans-serif; 
+            font-size: 2.2rem; 
+            margin-bottom: 50px; 
+            position: relative;
+        }
 
-        /* --- SECTION PROJETS --- */
-        .section-title { margin: 100px 0 40px; text-align: center; font-family: 'Outfit', sans-serif; font-size: 2rem; }
+        /* --- SERVICES --- */
+        .services-bg { background: var(--white); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .service-card i { color: var(--primary); margin-bottom: 20px; }
+        .service-card h3 { font-family: 'Outfit', sans-serif; margin-bottom: 15px; color: var(--dark); }
+        .service-card p { color: var(--text-gray); font-size: 0.95rem; }
 
+        /* --- PROJETS --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
-
         .project-card {
-            background: white;
-            border-radius: 15px;
+            background: var(--white);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
         }
-
-        .project-card:hover { transform: translateY(-10px); }
-
-        .project-img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
-
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1); }
+        .project-img { width: 100%; height: 220px; object-fit: cover; }
         .project-info { padding: 25px; }
-        .project-info h3 { margin-bottom: 10px; font-size: 1.4rem; }
-        .project-info p { color: var(--text-gray); margin-bottom: 20px; font-size: 0.95rem; }
+        .project-info h3 { margin-bottom: 10px; font-family: 'Outfit', sans-serif; }
+        .project-info p { color: var(--text-gray); margin-bottom: 20px; font-size: 0.9rem; }
 
+        /* --- BOUTONS --- */
         .btn-link {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 28px;
             background: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
+        .btn-link:hover { background: var(--primary-light); transform: scale(1.02); }
+        .btn-dark { background: var(--dark); }
 
-        .btn-link:hover { opacity: 0.8; }
-
-        /* --- CONTACT --- */
-        .contact-box {
-            background: white;
+        /* --- TARIFS --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: var(--white);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
-            margin-top: 80px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+        .price-card.popular {
+            border: 2px solid var(--primary);
+            position: relative;
+            transform: scale(1.05);
+        }
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .price-card h3 { color: var(--primary); font-family: 'Outfit', sans-serif; margin-bottom: 10px; }
+        .price-amount { font-size: 2.5rem; font-weight: 800; margin: 20px 0; font-family: 'Outfit', sans-serif; }
+        .price-features { list-style: none; text-align: left; color: var(--text-gray); margin-bottom: 30px; }
+        .price-features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+
+        /* --- FAQ --- */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .faq-item {
+            background: #edf2f7;
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .faq-item h3 { margin-bottom: 15px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: var(--dark); }
+
+        /* --- CONTACT --- */
+        .contact-section { text-align: center; margin-bottom: 80px; }
+        .contact-box {
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+        .promo-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--accent-text);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
         }
 
-        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.9rem; border-top: 1px solid #e2e8f0; }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.5rem; }
+        @media (max-width: 768px) {
+            .price-card.popular { transform: scale(1); }
+            section { padding: 60px 0; }
         }
-        .faq-container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
-    font-family: 'Inter', sans-serif;
-}
-
-.faq-title {
-    text-align: center;
-    font-family: 'Outfit', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: var(--dark);
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.faq-item {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
-}
-
-.faq-item h3 {
-    color: var(--primary);
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.faq-item p {
-    color: var(--text-gray);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
     </style>
 </head>
 <body>
 
     <header>
         <h1>Atlas Web Studio</h1>
-        <p>Créateur de solutions web modernes et élégantes. Spécialisé dans les sites vitrines pour entreprises et commerces.</p>
+        <p>Créateur de solutions web modernes. Je transforme vos idées en sites vitrines élégants et performants pour booster votre activité.</p>
+        <a href="#tarifs" class="btn-link" style="background: white; color: var(--primary);">Voir les formules</a>
     </header>
-    <section style="padding: 60px 20px; text-align: center; background: white;">
-    <h2 style="font-family: 'Outfit', sans-serif; margin-bottom: 30px;">Ce que je propose</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto;">
-        <div>
-            <h3 style="color: var(--primary);">💻 Création Web</h3>
-            <p style="color: var(--text-gray);">Sites vitrines modernes et responsives.</p>
-        </div>
-        <div>
-            <h3 style="color: var(--primary);">📱 Mobile First</h3>
-            <p style="color: var(--text-gray);">Design optimisé pour tous les smartphones.</p>
-        </div>
-        <div>
-            <h3 style="color: var(--primary);">🚀 SEO Local</h3>
-            <p style="color: var(--text-gray);">Visibilité boostée sur les moteurs de recherche.</p>
-        </div>
-    </div>
-</section>
 
-    <div class="container">
-        <h2 class="section-title">Mes Réalisations</h2>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Bella Pasta" class="project-img">
-                <div class="project-info">
-                    <h3>Bella Pasta</h3>
-                    <p>Site vitrine gastronomique. Design chaleureux, menu complet et optimisation pour la navigation mobile.</p>
-                    <a href="https://adam0911-devcode.github.io/restaurant-demo/" target="_blank" class="btn-link">Voir le site</a>
+    <section class="services-bg">
+        <div class="container">
+            <h2 class="section-title">Ce que je propose</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i data-lucide="monitor" size="40"></i>
+                    <h3>Création Web</h3>
+                    <p>Des sites vitrines sur mesure, élégants et conçus pour convertir vos visiteurs en clients.</p>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="L'Atelier Coiffure" class="project-img">
-                <div class="project-info">
-                    <h3>L'Atelier Coiffure</h3>
-                    <p>Site "One-Page" de luxe. Expérience utilisateur fluide, galerie photos optimisée et système d'appel direct.</p>
-                    <a href="https://adam0911-devcode.github.io/atelier-coiffeur/" target="_blank" class="btn-link">Voir le site</a>
+                <div class="service-card">
+                    <i data-lucide="smartphone" size="40"></i>
+                    <h3>Mobile First</h3>
+                    <p>60% du trafic vient des mobiles. Votre site sera parfaitement fluide sur tous les écrans.</p>
+                </div>
+                <div class="service-card">
+                    <i data-lucide="search" size="40"></i>
+                    <h3>SEO Local</h3>
+                    <p>Optimisation pour les moteurs de recherche afin de vous rendre visible là où vos clients cherchent.</p>
                 </div>
             </div>
         </div>
-        <section id="tarifs" style="padding: 40px 0 80px;">
-    <h2 style="font-family: 'Outfit', sans-serif; text-align: center; margin-bottom: 40px;">Nos Formules</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
-        
-    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
-            <h3 style="color: var(--primary);">Pack Start</h3>
-            <p style="font-size: 2rem; font-weight: 800; margin: 15px 0;">290€</p>
-            <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--text-gray); line-height: 2;">
-                <li>✓ Site vitrine une page</li>
-                <li>✓ Design Responsive</li>
-                <li>✓ Formulaire de contact / Appel</li>
-                <li>✓ Mise en ligne</li>
-            </ul>
-        </div>
+    </section>
 
-        <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1); border: 2px solid var(--primary); position: relative;">
-            <span style="position: absolute; top: -12px; right: 20px; background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold;">RECOMMANDÉ</span>
-            <h3 style="color: var(--primary);">Pack Business</h3>
-            <p style="font-size: 2rem; font-weight: 800; margin: 15px 0;">490€</p>
-            <ul style="list-style: none; text-align: left; font-size: 0.9rem; color: var(--text-gray); line-height: 2;">
-                <li>✓ Site bien structuré</li>
-                <li>✓ Optimisation SEO avancée</li>
-                <li>✓ Galerie photo dynamique</li>
-                <li>✓ Aide à l'achat du nom de domaine</li>
-            </ul>
+    <section>
+        <div class="container">
+            <h2 class="section-title">Mes Réalisations</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Bella Pasta" class="project-img">
+                    <div class="project-info">
+                        <h3>Bella Pasta</h3>
+                        <p>Site vitrine gastronomique. Design chaleureux et menu interactif optimisé pour mobile.</p>
+                        <a href="https://adam0911-devcode.github.io/restaurant-demo/" target="_blank" class="btn-link">Découvrir</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="L'Atelier Coiffure" class="project-img">
+                    <div class="project-info">
+                        <h3>L'Atelier Coiffure</h3>
+                        <p>Expérience "One-Page" luxe. Galerie photo plein écran et bouton d'appel direct.</p>
+                        <a href="https://adam0911-devcode.github.io/atelier-coiffeur/" target="_blank" class="btn-link">Découvrir</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-        <div class="faq-container">
-    <h2 class="faq-title">Pourquoi me confier votre projet ?</h2>
-    
-    <div class="faq-grid">
-        <div class="faq-item">
-            <h3>🚀 Un tarif direct et transparent</h3>
-            <p>Contrairement aux agences web qui facturent des milliers d'euros pour couvrir leurs frais de structure, je vous propose un tarif direct. Vous payez pour le travail accompli, pas pour des bureaux luxueux.</p>
+    </section>
+
+    <section id="tarifs" class="services-bg">
+        <div class="container">
+            <h2 class="section-title">Nos Formules</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Pack Start</h3>
+                    <div class="price-amount">290€</div>
+                    <ul class="price-features">
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Site vitrine une page</li>
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Design Responsive</li>
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Formulaire de contact</li>
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Mise en ligne incluse</li>
+                    </ul>
+                    <a href="mailto:contact.atlaswebstudio@gmail.com" class="btn-link">Choisir Start</a>
+                </div>
+                <div class="price-card popular">
+                    <span class="badge">RECOMMANDÉ</span>
+                    <h3>Pack Business</h3>
+                    <div class="price-amount">490€</div>
+                    <ul class="price-features">
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Site multi-pages</li>
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> SEO Avancé</li>
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Galerie dynamique</li>
+                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Support prioritaire</li>
+                    </ul>
+                    <a href="mailto:contact.atlaswebstudio@gmail.com" class="btn-link">Choisir Business</a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <h3>⚡ Réactivité & Proximité</h3>
-            <p>Je ne gère pas des dizaines de projets en même temps. En travaillant avec moi, vous bénéficiez d'un interlocuteur unique, passionné et disponible pour répondre à vos besoins en un temps record.</p>
+    <section>
+        <div class="container">
+            <h2 class="section-title">Pourquoi me faire confiance ?</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>🚀 Un tarif direct</h3>
+                    <p>Zéro frais d'agence. Vous payez pour l'expertise et le résultat, sans financer des bureaux de luxe.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>⚡ Réactivité maximale</h3>
+                    <p>Interlocuteur unique et disponible. Je réponds à vos besoins en un temps record.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>🛠️ Sérénité Technique</h3>
+                    <p>Je gère l'hébergement et la maintenance. Votre site reste performant et sécurisé sans effort de votre part.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <h3>🛠️ Sérénité Technique</h3>
-            <p>Ne vous souciez plus de l'aspect technique. Je m'occupe de l'hébergement, de la mise en ligne et de la maintenance de votre site. Vous avez un partenaire de confiance qui veille au bon fonctionnement de votre vitrine 24h/24.</p>
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <div class="promo-badge">✨ Offre : -15% pour les 5 prochains projets</div>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; margin-bottom: 10px;">Prêt à lancer votre site ?</h2>
+                <p style="color: var(--text-gray); margin-bottom: 35px;">Discutons ensemble de votre projet par e-mail.</p>
+                <a href="mailto:contact.atlaswebstudio@gmail.com?subject=Demande de projet Web" class="btn-link btn-dark">Me contacter par email</a>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-        <div class="contact-box">
-            <div style="display: inline-block; background: #fef3c7; color: #92400e; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
-    ✨ Offre de lancement : -15% pour les 5 prochains projets
-</div>
-            <h2 style="margin-bottom: 15px;">Un projet en tête ?</h2>
-            <p style="margin-bottom: 25px;">Je suis disponible pour créer votre présence en ligne.</p>
-            <a href="mailto:contact.atlaswebstudio@gmail.com?subject=Demande de projet Web" class="btn-link" style="background: var(--dark);">Me contacter par email</a>
-        </div>
+    <footer>
+        © 2026 - Atlas Web Studio | Développé par Adam
+    </footer>
 
-        <footer>
-            © 2026 - Adam | Développé avec passion
-        </footer>
-    </div>
-
+    <script>
+        // Initialisation des icônes Lucide
+        lucide.createIcons();
+    </script>
 </body>
 </html>
