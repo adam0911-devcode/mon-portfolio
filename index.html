@@ -19,7 +19,13 @@
             --accent-text: #92400e;
         }
 
+        /* --- CONFIGURATION GLOBALE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            scroll-behavior: smooth; /* Permet le glissement fluide vers les sections */
+        }
+
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--light); 
@@ -28,9 +34,9 @@
             overflow-x: hidden;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER (HERO SECTION) --- */
         header {
-            height: 70vh;
+            height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -42,7 +48,7 @@
         }
 
         header h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 15px; }
-        header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin-bottom: 30px; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin-bottom: 35px; }
 
         /* --- SECTIONS COMMUNES --- */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
@@ -52,10 +58,9 @@
             font-family: 'Outfit', sans-serif; 
             font-size: 2.2rem; 
             margin-bottom: 50px; 
-            position: relative;
         }
 
-        /* --- SERVICES --- */
+        /* --- SERVICES (CE QUE JE PROPOSE) --- */
         .services-bg { background: var(--white); }
         .services-grid {
             display: grid;
@@ -63,11 +68,11 @@
             gap: 40px;
             text-align: center;
         }
-        .service-card i { color: var(--primary); margin-bottom: 20px; }
+        .service-card i { color: var(--primary); margin-bottom: 20px; display: inline-block; }
         .service-card h3 { font-family: 'Outfit', sans-serif; margin-bottom: 15px; color: var(--dark); }
         .service-card p { color: var(--text-gray); font-size: 0.95rem; }
 
-        /* --- PROJETS --- */
+        /* --- RÉALISATIONS --- */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -100,7 +105,8 @@
             border: none;
             cursor: pointer;
         }
-        .btn-link:hover { background: var(--primary-light); transform: scale(1.02); }
+        .btn-link:hover { background: var(--primary-light); transform: scale(1.05); }
+        .btn-white { background: var(--white); color: var(--primary); }
         .btn-dark { background: var(--dark); }
 
         /* --- TARIFS --- */
@@ -123,6 +129,7 @@
             border: 2px solid var(--primary);
             position: relative;
             transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.1);
         }
         .badge {
             position: absolute;
@@ -138,28 +145,31 @@
         .price-card h3 { color: var(--primary); font-family: 'Outfit', sans-serif; margin-bottom: 10px; }
         .price-amount { font-size: 2.5rem; font-weight: 800; margin: 20px 0; font-family: 'Outfit', sans-serif; }
         .price-features { list-style: none; text-align: left; color: var(--text-gray); margin-bottom: 30px; }
-        .price-features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .price-features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
 
-        /* --- FAQ --- */
+        /* --- FAQ / POURQUOI --- */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
         .faq-item {
-            background: #edf2f7;
+            background: #ffffff;
             padding: 30px;
             border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
         .faq-item h3 { margin-bottom: 15px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: var(--dark); }
+        .faq-item p { font-size: 0.9rem; color: var(--text-gray); }
 
         /* --- CONTACT --- */
-        .contact-section { text-align: center; margin-bottom: 80px; }
+        .contact-section { text-align: center; padding-bottom: 100px; }
         .contact-box {
             background: var(--white);
             padding: 60px 40px;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
         .promo-badge {
             display: inline-block;
@@ -177,6 +187,7 @@
         @media (max-width: 768px) {
             .price-card.popular { transform: scale(1); }
             section { padding: 60px 0; }
+            header { height: auto; padding: 80px 20px; }
         }
     </style>
 </head>
@@ -184,8 +195,8 @@
 
     <header>
         <h1>Atlas Web Studio</h1>
-        <p>Créateur de solutions web modernes. Je transforme vos idées en sites vitrines élégants et performants pour booster votre activité.</p>
-        <a href="#tarifs" class="btn-link" style="background: white; color: var(--primary);">Voir les formules</a>
+        <p>Créateur de solutions web modernes. Je transforme vos idées en sites vitrines élégants pour booster votre activité.</p>
+        <a href="#tarifs" class="btn-link btn-white">Découvrir mes offres</a>
     </header>
 
     <section class="services-bg">
@@ -200,12 +211,12 @@
                 <div class="service-card">
                     <i data-lucide="smartphone" size="40"></i>
                     <h3>Mobile First</h3>
-                    <p>60% du trafic vient des mobiles. Votre site sera parfaitement fluide sur tous les écrans.</p>
+                    <p>Votre site sera parfaitement fluide sur smartphones, tablettes et ordinateurs.</p>
                 </div>
                 <div class="service-card">
                     <i data-lucide="search" size="40"></i>
                     <h3>SEO Local</h3>
-                    <p>Optimisation pour les moteurs de recherche afin de vous rendre visible là où vos clients cherchent.</p>
+                    <p>Une optimisation pensée pour vous rendre visible sur les moteurs de recherche.</p>
                 </div>
             </div>
         </div>
@@ -219,16 +230,16 @@
                     <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Bella Pasta" class="project-img">
                     <div class="project-info">
                         <h3>Bella Pasta</h3>
-                        <p>Site vitrine gastronomique. Design chaleureux et menu interactif optimisé pour mobile.</p>
-                        <a href="https://adam0911-devcode.github.io/restaurant-demo/" target="_blank" class="btn-link">Découvrir</a>
+                        <p>Site vitrine gastronomique. Design chaleureux et menu interactif optimisé.</p>
+                        <a href="https://adam0911-devcode.github.io/restaurant-demo/" target="_blank" class="btn-link">Voir le projet</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="L'Atelier Coiffure" class="project-img">
                     <div class="project-info">
                         <h3>L'Atelier Coiffure</h3>
-                        <p>Expérience "One-Page" luxe. Galerie photo plein écran et bouton d'appel direct.</p>
-                        <a href="https://adam0911-devcode.github.io/atelier-coiffeur/" target="_blank" class="btn-link">Découvrir</a>
+                        <p>Expérience "One-Page" luxe. Galerie photo plein écran et design épuré.</p>
+                        <a href="https://adam0911-devcode.github.io/atelier-coiffeur/" target="_blank" class="btn-link">Voir le projet</a>
                     </div>
                 </div>
             </div>
@@ -243,24 +254,24 @@
                     <h3>Pack Start</h3>
                     <div class="price-amount">290€</div>
                     <ul class="price-features">
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Site vitrine une page</li>
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Design Responsive</li>
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Formulaire de contact</li>
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Mise en ligne incluse</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Site vitrine une page</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Design Responsive</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Formulaire de contact</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Mise en ligne incluse</li>
                     </ul>
-                    <a href="mailto:contact.atlaswebstudio@gmail.com" class="btn-link">Choisir Start</a>
+                    <a href="#contact" class="btn-link">Choisir Start</a>
                 </div>
                 <div class="price-card popular">
                     <span class="badge">RECOMMANDÉ</span>
                     <h3>Pack Business</h3>
                     <div class="price-amount">490€</div>
                     <ul class="price-features">
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Site multi-pages</li>
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> SEO Avancé</li>
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Galerie dynamique</li>
-                        <li><i data-lucide="check-circle-2" size="18" color="#6366f1"></i> Support prioritaire</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Site multi-pages</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Optimisation SEO</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Galerie dynamique</li>
+                        <li><i data-lucide="check" size="18" color="#6366f1"></i> Support prioritaire</li>
                     </ul>
-                    <a href="mailto:contact.atlaswebstudio@gmail.com" class="btn-link">Choisir Business</a>
+                    <a href="#contact" class="btn-link">Choisir Business</a>
                 </div>
             </div>
         </div>
@@ -272,33 +283,33 @@
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3>🚀 Un tarif direct</h3>
-                    <p>Zéro frais d'agence. Vous payez pour l'expertise et le résultat, sans financer des bureaux de luxe.</p>
+                    <p>Zéro frais d'agence. Vous payez pour l'expertise et le résultat, sans financer des bureaux de luxe inutiles.</p>
                 </div>
                 <div class="faq-item">
                     <h3>⚡ Réactivité maximale</h3>
-                    <p>Interlocuteur unique et disponible. Je réponds à vos besoins en un temps record.</p>
+                    <p>Je ne gère que peu de projets à la fois pour vous garantir une disponibilité totale et un suivi de qualité.</p>
                 </div>
                 <div class="faq-item">
                     <h3>🛠️ Sérénité Technique</h3>
-                    <p>Je gère l'hébergement et la maintenance. Votre site reste performant et sécurisé sans effort de votre part.</p>
+                    <p>Hébergement, mise en ligne et maintenance : je m'occupe de tout pour que votre site reste performant.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-box">
                 <div class="promo-badge">✨ Offre : -15% pour les 5 prochains projets</div>
-                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; margin-bottom: 10px;">Prêt à lancer votre site ?</h2>
-                <p style="color: var(--text-gray); margin-bottom: 35px;">Discutons ensemble de votre projet par e-mail.</p>
-                <a href="mailto:contact.atlaswebstudio@gmail.com?subject=Demande de projet Web" class="btn-link btn-dark">Me contacter par email</a>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; margin-bottom: 10px;">Prêt à lancer votre projet ?</h2>
+                <p style="color: var(--text-gray); margin-bottom: 35px;">Parlons-en ensemble par e-mail pour donner vie à vos idées.</p>
+                <a href="mailto:contact.atlaswebstudio@gmail.com?subject=Demande de projet Web" class="btn-link btn-dark">Envoyer un message</a>
             </div>
         </div>
     </section>
 
     <footer>
-        © 2026 - Atlas Web Studio | Développé par Adam
+        © 2026 - Atlas Web Studio | Développé avec passion par Adam
     </footer>
 
     <script>
